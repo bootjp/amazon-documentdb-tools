@@ -675,7 +675,7 @@ def main():
                 "both --username amd --password are required if providing MongoDB credentials."
             )
 
-    if args.auth_db is not None and not all([args.username, args.password]):
+    if args.auth_db is not None and not "admin" and not all([args.username, args.password]):
         parser.error("--auth-db requires both --username and --password.")
 
     indextool = DocumentDbIndexTool(args)
